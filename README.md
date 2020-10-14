@@ -28,7 +28,7 @@ Cобираем все в одну папку, lab-1.1  packer.exe, postinstall.
 
 Если все хорошо то будет получено сообщение как на картинке.
 
-! [Image alt] (https://github.com/ {andy-ml} / {dev_ods} / raw / {lab-1.1} /imj validate-build.png.png)
+! [Image alt] (https://github.com/ {andy-ml} / {dev_ops} / raw / {lab-1.1} /imj validate-build.png.png)
 
 Находять в катологе с файлом .json, запускаем packer build и ждем пока  ОС установится. При условии что ошибок не было, собираем box командой
 
@@ -36,7 +36,7 @@ Cобираем все в одну папку, lab-1.1  packer.exe, postinstall.
 
 В результате получим файл с расширением .box
 
-! [Image alt] (https://github.com/ {andy-ml} / {dev_ods} / raw / {lab-1.1} /finished build.png)
+! [Image alt] (https://github.com/ {andy-ml} / {dev_ops} / raw / {lab-1.1} /finished build.png)
   
  
 
