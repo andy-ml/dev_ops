@@ -33,10 +33,10 @@ Cобираем все в одну папку, lab-1.1  packer.exe, postinstall.
 
 Находять в катологе с файлом .json, запускаем packer build и ждем пока  ОС установится. При условии что ошибок не было, собираем box командой
 
-'''
+
 `packer build ubuntu64.json`
 
-'''
+
 В результате получим файл с расширением .box в папке lab-1.1 и папку packer_cachen c .iso файлами.
 
 ![alt text](https://github.com/andy-ml/dev_ops/blob/main/finished%20build.png)
