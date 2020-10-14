@@ -36,7 +36,7 @@ Cобираем все в одну папку, lab-1.1  packer.exe, postinstall.
 
 В результате получим файл с расширением .box
 
-! [Image alt] (https://github.com/ {andy-ml} / {dev_ops} / raw / {lab-1.1} /finished build.png)
+! [Image alt] (https://github.com/ {andy-ml} / {dev_ops} / {lab-1.1} /finished build.png)
   
  
 
