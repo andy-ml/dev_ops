@@ -37,7 +37,7 @@ Cобираем все в одну папку, lab-1.1  packer.exe, postinstall.
 `packer build ubuntu64.json`
 
 
-В результате получим файл с расширением .box в папке lab-1.1 и папку packer_cachen c .iso файлами.
+В результате получим файл с расширением .box в папке lab-1.1 и папку packer_cache c .iso файлами.
 
 ![alt text](https://github.com/andy-ml/dev_ops/blob/main/finished%20build.png)
   
