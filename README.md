@@ -41,7 +41,3 @@ Cобираем все в одну папку, lab-1.1  packer.exe, postinstall.
 
 ![alt text](https://github.com/andy-ml/dev_ops/blob/main/finished%20build.png)
   
- 
-
-
-
