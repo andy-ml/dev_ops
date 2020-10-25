@@ -54,9 +54,12 @@ print usage "%" вывод начение в терминал
 ![alt text](https://github.com/andy-ml/dev_ops/blob/main/lab-4/imj%20validate-BD1.png)
 
 Что бы узнаь размер таблиц определенной базы данных, где `"mysql"` название БД
-`mysql> SELECT table_name AS `Table`, round(((data_length + index_length) / 1024 / 1024), 2) `Size in MB` FROM information_schema.TABLES WHERE table_schema = "mysql";`
+```
+mysql> SELECT table_name AS `Table`, round(((data_length + index_length) / 1024 / 1024), 2) `Size in MB` FROM information_schema.TABLES WHERE table_schema = "mysql";
 
-Выйти bp БД `mysql> exit`
+```
+
+Выйти из БД `mysql> exit`
 
 1.2.1 Написать скрипт, который рандомно сгенерирует на диске структуру файлов и папок.
 Справка
@@ -65,8 +68,9 @@ print usage "%" вывод начение в терминал
 
 Общий синтаксис команды таков:
 `$ dd if=источник_копирования of=место_назначения параметры параметры`
-`bs=1` создаем данные по 1 байту  
-`count=${MAX_FILE_SIZE}` внешний параметр, размер файла в байтах 
+`bs=1` указываем сколько байт читать и записывать за один раз 
+`count=${MAX_FILE_SIZE}` внешний параметр, скопировать указанное количество блоков размер блока задали параметром `bs=1`
+
 ```
 #!/bin/bash
 
