@@ -1,0 +1,21 @@
+#!/bin/bash
+
+DIR_MASK="dir_XXXX"
+FILE_MASK="fileXXXX"
+
+DIR_PATH=$1
+DEPTH=$2
+MAX_FILE_SIZE=$3
+ITERATION=$4
+
+cd ${DIR_PATH}
+
+for (( DIR = 0; DIR < ${DEPTH}; DIR++ )); do
+  DIR_NAME=$(mktemp -d ${DIR_MASK})
+  cd ${DIR_NAME}
+
+  for (( FILE = 0; FILE < ${ITERATION}; FILE++ )); do
+    FILE_NAME=$(mktemp ${FILE_MASK})
+    dd if=/dev/zero of=${FILE_NAME} bs=1 count=${MAX_FILE_SIZE}
+  done
+done

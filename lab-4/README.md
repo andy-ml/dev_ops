@@ -41,3 +41,54 @@ print usage "%" вывод начение в терминал
 1.1.7. Общий суммарный объем всех устройств, смонтированных в текущий момент в системе (байты, КБ или Гб). 34.6 Гб 
 
 `cfdisk`
+
+1.1.8. Размер всех баз в MySQL, к которым у текущего пользователя есть доступ.
+`sudo mysql -V`узнать версию базы данных 
+`sudo mysql -u root -p` чтобы подключиться к серверу базы данных MySQL
+`mysql> show databases;` перечисляет все MySQL БД
+`grep -r datadir /etc/mysql/` позволяет узнать где на компютеле в linux находиться БД
+
+Для того что бы узнать размер всех баз данных в MySQL одим команду приведенную ниже, предварительно подключившись к БД.
+`mysql> SELECT table_schema "database_name", sum( data_length + index_length )/1024/1024 "Data Base Size in MB" FROM information_schema.TABLES GROUP BY table_schema;`
+так будет выглядеть вывод информации в консоли.
+![alt text](https://github.com/andy-ml/dev_ops/blob/main/lab-4/imj%20validate-BD1.png)
+
+Что бы узнаь размер таблиц определенной базы данных, где `"mysql"` название БД
+`mysql> SELECT table_name AS `Table`, round(((data_length + index_length) / 1024 / 1024), 2) `Size in MB` FROM information_schema.TABLES WHERE table_schema = "mysql";`
+
+Выйти bp БД `mysql> exit`
+
+1.2.1 Написать скрипт, который рандомно сгенерирует на диске структуру файлов и папок.
+Справка
+Для написания скрипта для bash создаем файл  c кой первой строкой #!/bin/bash, затем пишем свой скрипт, что бы сделать файл исполняемым выполняем команду `chmod ugo+x файл_скрипта`
+`dd` - это команда копирования, аналог утилиты `cp` только для блочных данных. `dd` просто переносит по одному блоку данных указанного в параметрах размера с одного места на другое.
+
+Общий синтаксис команды таков:
+`$ dd if=источник_копирования of=место_назначения параметры параметры`
+`bs=1` создаем данные по 1 байту  
+`count=${MAX_FILE_SIZE}` внешний параметр, размер файла в байтах 
+```
+#!/bin/bash
+
+DIR_MASK="dir_XXXX"
+FILE_MASK="fileXXXX"
+
+DIR_PATH=$1
+DEPTH=$2
+MAX_FILE_SIZE=$3
+ITERATION=$4
+
+cd ${DIR_PATH}
+
+for (( DIR = 0; DIR < ${DEPTH}; DIR++ )); do
+  DIR_NAME=$(mktemp -d ${DIR_MASK})
+  cd ${DIR_NAME}
+
+  for (( FILE = 0; FILE < ${ITERATION}; FILE++ )); do
+    FILE_NAME=$(mktemp ${FILE_MASK})
+    dd if=/dev/zero of=${FILE_NAME} bs=1 count=${MAX_FILE_SIZE}
+  done
+done
+
+```
+
