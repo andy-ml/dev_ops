@@ -71,28 +71,4 @@ mysql> SELECT table_name AS `Table`, round(((data_length + index_length) / 1024 
 `bs=1` указываем сколько байт читать и записывать за один раз 
 `count=${MAX_FILE_SIZE}` внешний параметр, скопировать указанное количество блоков размер блока задали параметром `bs=1`
 
-```
-#!/bin/bash
-
-DIR_MASK="dir_XXXX"
-FILE_MASK="fileXXXX"
-
-DIR_PATH=$1
-DEPTH=$2
-MAX_FILE_SIZE=$3
-ITERATION=$4
-
-cd ${DIR_PATH}
-
-for (( DIR = 0; DIR < ${DEPTH}; DIR++ )); do
-  DIR_NAME=$(mktemp -d ${DIR_MASK})
-  cd ${DIR_NAME}
-
-  for (( FILE = 0; FILE < ${ITERATION}; FILE++ )); do
-    FILE_NAME=$(mktemp ${FILE_MASK})
-    dd if=/dev/zero of=${FILE_NAME} bs=1 count=${MAX_FILE_SIZE}
-  done
-done
-
-```
 
