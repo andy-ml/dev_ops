@@ -14,7 +14,10 @@
 `sudo service docker start` запускаем docker    
 `docker pull nginx` скачиваем образ nginx     
 `mkdir nginx` этой командой  создаем папку nginx    
-`docker images` проверяем наличие образа    
+`docker images` проверяем наличие образа   
+
+![alt text](https://github.com/andy-ml/dev_ops/blob/main/lab-1.7/docker%20images.png)
+
 `docker run -d -p 8080:80 nginx` запускаем контейнер докер с проброшеным портом, Сначала надо указывается порт машины (можно указать вместе с IP), потом порт в контейнере.    
 `mkdir nginx` создаем папку    
 `docker run -it -v $pwd\papka\nginx\etc:/mounted nginx /bin/bash` монтируем папку    
@@ -23,7 +26,7 @@
 `docker ps -a` смотрм все запускаемые контейнеры    
 `http://localhost:8080/` запускаем в браузере, должна отобразться стартовая страница nginx  
 
-![alt text](https://github.com/andy-ml/dev_ops/blob/main/lab-1.7/imj%20validate-build.png) 
+![alt text](https://github.com/andy-ml/dev_ops/blob/main/lab-1.7/start_nginx.png) 
 
 `docker stop namecont` останавливаем нужный контейнер в нашем случае nginx `namecont` может быть как название контейнера, так и его id    
 
