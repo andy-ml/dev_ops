@@ -17,7 +17,7 @@
 `docker images` проверяем наличие образа    
 `docker run -d -p 8080:80 nginx` запускаем контейнер докер с проброшеным портом, Сначала надо указывается порт машины (можно указать вместе с IP), потом порт в контейнере.    
 `mkdir nginx` создаем папку    
-`docker run -it -v $pwd\papka\nginx\etc:/mounted  nginx /bin/bash монтируем папку    
+`docker run -it -v $pwd\papka\nginx\etc:/mounted nginx /bin/bash монтируем папку    
 `docker exec -it name cont bash` зайти в контейнер, если это нужно        
 `docker ps` смотрим работающие контейнеры    
 `docker ps -a` смотрм все запускаемые контейнеры    
