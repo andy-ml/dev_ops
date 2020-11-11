@@ -1,7 +1,5 @@
 # 1.7.	Работа с Docker
-
-Установку Docker производим по этому руководству        
-`https://losst.ru/ustanovka-docker-na-ubuntu-16-04`    
+ 
 Краткое описание    
 `sudo su` переходим в root, иначе под wsl2 ubuntu18.04 появляются ошибки, которые в root не возникают     
 `sudo apt update && sudo apt upgrade` обновляем систему до актуального состояния    
@@ -29,4 +27,7 @@
 ![alt text](https://github.com/andy-ml/dev_ops/blob/main/lab-1.7/start_nginx.png) 
 
 `docker stop namecont` останавливаем нужный контейнер в нашем случае nginx `namecont` может быть как название контейнера, так и его id    
+
+При установке Docker пользовался этим руководством        
+`https://losst.ru/ustanovka-docker-na-ubuntu-16-04`
 
