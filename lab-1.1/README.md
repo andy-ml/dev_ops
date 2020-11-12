@@ -31,13 +31,13 @@ Cобираем все в одну папку, lab-1.1  packer.exe, postinstall.
 ![alt text](https://github.com/andy-ml/dev_ops/blob/main/lab-1.1/imj%20validate-build.png)
 или    
 `.\packer.exe validate E:\lab\lab-1.1\ubuntu64.json`
-![alt text](https://github.com/andy-ml/dev_ops/blob/main/lab-1.1/)
+![alt text](https://github.com/andy-ml/dev_ops/blob/main/lab-1.1/packe%D0%BA_check.png)
 
 Находять в катологе с файлом .json, запускаем packer build и ждем пока  ОС установится. При условии что ошибок не было, собираем box командой
 
 `packer build ubuntu64.json` или `.\packer build E:\lab\lab-1.1\ubuntu64.json`
 
-![alt text](https://github.com/andy-ml/dev_ops/blob/main/lab-1.1/)
+![alt text](https://github.com/andy-ml/dev_ops/blob/main/lab-1.1/packer_build.jpg)
 
 В результате получим файл с расширением .box в папке lab-1.1 и папку packer_cache c .iso файлами.
 
