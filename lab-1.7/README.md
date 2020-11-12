@@ -1,7 +1,7 @@
 # 1.7.	Работа с Docker
  
 Краткое описание    
-`sudo su` переходим в root, иначе под wsl2 ubuntu18.04 появляются ошибки, которые в root не возникают     
+`sudo su` переходим в root, иначе под wsl2 ubuntu18.04 появляются ошибки, которые в root не возникают, намудрил с правами su.     
 `sudo apt update && sudo apt upgrade` обновляем систему до актуального состояния    
 `sudo apt install docker.io` качаем докер    
 `sudo service --status-all` смотрим наличие сервиса docker        
