@@ -26,8 +26,8 @@ docker run \
   --volume jenkins-data:/var/jenkins_home \
   --publish 2376:2376 \
   docker:dind
-
 ```
+
   `--name jenkins-docker` задаем имя контейнера (необязательно)    
   `--rm` автоматически удаляем контейнер docker (экземпляр образа Docker) при его завершении.(необязательно)     
   `--detach` Запускает контейнер Docker в фоновом режиме.(необязательно)    
@@ -39,7 +39,7 @@ docker run \
   `--volume jenkins-data:/var/jenkins_home` Сопоставляет /var/jenkins_homeкаталог внутри контейнера с томом Docker с именем jenkins-data. Это позволит другим контейнерам Docker, управляемым демоном Docker этого контейнера Docker, монтировать данные из Jenkins.
   `--publish 2376:2376` Предоставляет доступ к порту демона Docker на хост-машине. Это полезно для выполнения dockerкоманд на хост-машине для управления этим внутренним демоном Docker.
   `docker:dind` Это образ может быть загружен перед запуском с помощью команды: docker image pull docker:dind.
-```
+
 ---
 Создаем dockerfile с содержимым
 
@@ -57,8 +57,8 @@ RUN add-apt-repository \
 RUN apt-get update && apt-get install -y docker-ce-cli
 USER jenkins
 RUN jenkins-plugin-cli --plugins blueocean:1.24.3
-
 ```
+
 `mkdir dockerfiles` создаем каталог    
 `cd dockerfiles` переходим    
 `touch Dockerfile` создаем докер файл    
@@ -85,6 +85,7 @@ docker run \
   --volume jenkins-docker-certs:/certs/client:ro \
   myjenkins-blueocean:1.1 
 ```
+
   `docker run \`    
   `--name jenkins-blueocean \` ( Необязательно )Задает имя контейнера Docker    	
   `--rm \`( Необязательно ) Автоматически удаляет контейнер Docker при его завершении.    
