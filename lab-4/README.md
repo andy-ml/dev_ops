@@ -58,9 +58,7 @@ print usage "%" вывод начение в терминал
 mysql> SELECT table_name AS `Table`, round(((data_length + index_length) / 1024 / 1024), 2) `Size in MB` FROM information_schema.TABLES WHERE table_schema = "mysql";
 
 ```
-
 Выйти из БД `mysql> exit`
-
 1.2.1 Написать скрипт, который рандомно сгенерирует на диске структуру файлов и папок.    
 Справка.    
 Для написания скрипта для bash создаем файл  c кой первой строкой #!/bin/bash, затем пишем свой скрипт, что бы сделать файл исполняемым выполняем команду `chmod ugo+x файл_скрипта`
