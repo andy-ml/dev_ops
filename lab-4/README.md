@@ -51,13 +51,15 @@ print usage "%" вывод начение в терминал
 Для того что бы узнать размер всех баз данных в MySQL одим команду приведенную ниже, предварительно подключившись к БД.
 `mysql> SELECT table_schema "database_name", sum( data_length + index_length )/1024/1024 "Data Base Size in MB" FROM information_schema.TABLES GROUP BY table_schema;`
 так будет выглядеть вывод информации в консоли.
+
 ![alt text](https://github.com/andy-ml/dev_ops/blob/main/lab-4/BD1.png)
 
 Что бы узнать размер таблиц определенной базы данных, где `"mysql"` название БД
 ```
 mysql> SELECT table_name AS `Table`, round(((data_length + index_length) / 1024 / 1024), 2) `Size in MB` FROM information_schema.TABLES WHERE table_schema = "mysql";
 ```
-Выйти из БД `mysql> exit`    
+Выйти из БД `mysql> exit`
+    
 1.2.1 Написать скрипт, который рандомно сгенерирует на диске структуру файлов и папок.        
 Справка.        
 Для написания скрипта для bash создаем файл  c кой первой строкой #!/bin/bash, затем пишем свой скрипт, что бы сделать файл исполняемым выполняем команду `chmod ugo+x файл_скрипта`
