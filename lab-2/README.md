@@ -28,7 +28,6 @@ docker run \
   docker:dind
 
 ```
-
   `--name jenkins-docker` задаем имя контейнера (необязательно)    
   `--rm` автоматически удаляем контейнер docker (экземпляр образа Docker) при его завершении.(необязательно)     
   `--detach` Запускает контейнер Docker в фоновом режиме.(необязательно)    
@@ -40,6 +39,7 @@ docker run \
   `--volume jenkins-data:/var/jenkins_home` Сопоставляет /var/jenkins_homeкаталог внутри контейнера с томом Docker с именем jenkins-data. Это позволит другим контейнерам Docker, управляемым демоном Docker этого контейнера Docker, монтировать данные из Jenkins.
   `--publish 2376:2376` Предоставляет доступ к порту демона Docker на хост-машине. Это полезно для выполнения dockerкоманд на хост-машине для управления этим внутренним демоном Docker.
   `docker:dind` Это образ может быть загружен перед запуском с помощью команды: docker image pull docker:dind.
+```
 ---
 Создаем dockerfile с содержимым
 
@@ -59,10 +59,10 @@ USER jenkins
 RUN jenkins-plugin-cli --plugins blueocean:1.24.3
 
 ```
-`mkdir dockerfiles` создаем каталог
-`cd dockerfiles` переходим
-`touch Dockerfile` создаем докер файл
-`vi Dockerfile` Отредактируйте его и добавьте команды с помощью редактора vi
+`mkdir dockerfiles` создаем каталог    
+`cd dockerfiles` переходим    
+`touch Dockerfile` создаем докер файл    
+`vi Dockerfile` Отредактируйте его и добавьте команды с помощью редактора vi    
 отдельно нужно занть команды редактора vi для напоминания: `i` -редактирование, `:wq` - сохранить и выйти 
 и запустим, результат созданый образ докер
 
@@ -108,7 +108,7 @@ docker run \
 ![alt text](https://github.com/andy-ml/dev_ops/blob/main/lab-2/docker_cont_run.png)
 ![alt text](https://github.com/andy-ml/dev_ops/blob/main/lab-2/docker_images.jpg)
 
-`docker logs 4db86b674ed9` выводим логи запуска контейнера что бы взять оттуда пароль? для запуска jenkins в браузере
+`docker logs 4db86b674ed9` выводим логи запуска контейнера что бы взять оттуда пароль, для запуска jenkins в браузере
 
 Запускаем браузер вставляем в адресную строку  http://localhost:8080/
 Вводим пароль полученый командой `docker log ID_cont` копируем его из терминала, ID это id запущенного контейнера
@@ -118,13 +118,13 @@ docker run \
 ![alt text](https://github.com/andy-ml/dev_ops/blob/main/lab-2/jenkins_start_done.jpg)
 
 ---
-команды docker 
-`docker exec -it ID_cont bash` входим в контейнер, если это нужно
-`docker ps` просмотреть запущенные контейнеры, флаг -a просмотр все контейнеры
-`docker images` проверяем созданый image(образ) для Jenkins
-`docker stop ID_cont` остановить контейнер
-`docker rm ID_cont` удалить контейнер
-`docker log ID_cont` что бы вывести логи установки jenkins и взять оттуда пароль для входа
+команды docker     
+`docker exec -it ID_cont bash` входим в контейнер, если это нужно    
+`docker ps` просмотреть запущенные контейнеры, флаг -a просмотр все контейнеры    
+`docker images` проверяем созданый image(образ) для Jenkins    
+`docker stop ID_cont` остановить контейнер    
+`docker rm ID_cont` удалить контейнер    
+`docker log ID_cont` что бы вывести логи установки jenkins и взять оттуда пароль для входа    
 
 ---
 Использовал материалы с https://www.jenkins.io/doc/book/installing/docker/    
